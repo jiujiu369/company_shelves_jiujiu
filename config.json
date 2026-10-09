@@ -1,0 +1,21 @@
+{
+  "browser": {
+    "channel": "chrome",
+    "cdp_url": "http://127.0.0.1:9223",
+    "page_url_pattern": "item\\.upload\\.taobao\\.com/sell/(v2/publish|publish)\\.htm",
+    "entry_url_pattern": "^https://item\\.upload\\.taobao\\.com/sell/ai/category\\.htm(?:[?#]|$)",
+    "profile_dir": "运行记录/browser-profile",
+    "headless": false,
+    "allowed_hosts": ["taobao.com", "tmall.com"],
+    "timeout_ms": 30000,
+    "start_url": "https://item.upload.taobao.com/sell/ai/category.htm"
+  },
+  "ollama": {
+    "url": "http://192.168.1.9:11434",
+    "model": "qwen3.5:4b-q4_K_M",
+    "timeout": 120,
+    "retries": 2
+  },
+  "state": "运行记录/state.sqlite",
+  "profile": "profiles/qianniu.json"
+}

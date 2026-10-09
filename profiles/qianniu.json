@@ -1,0 +1,146 @@
+{
+  "profile_version": 1,
+  "status": "candidate_bindings_not_live_accepted",
+  "notes": "JG单SKU名称、更多批量100/999/6平方毫米/单芯多股芯及浙江温州已现场读回。用户手动排序后不再自动排序；图片内容、销售/库存单位、包装空值及提交回查仍未验收。SKU读取仅适配声明1/1的单行；其他省市标签尚未绑定。不允许改verified跳过核验。",
+  "entry": {"category_path": "/sell/ai/category.htm", "publish_url": "https://item.upload.taobao.com/sell/v2/publish.htm?catId={category}",
+    "local_upload": {"verified": false, "open": {"role": "button", "name": "从本地上传"},
+      "timeout": 60, "notes": "截图可见上传入口，文件选择、预览区域、识别完成及进入类目的实际控件尚未现场验证；禁止将verified手动改为true绕过验收。"}},
+  "fields": {
+    "fields.title": {"selector": {"placeholder": "最多允许输入30个汉字（60字符）"}},
+    "fields.guide_title": {"selector": {"placeholder": "最多输入30字符（15个汉字）"}},
+    "fields.brand": {"selector": {"field": "品牌"}},
+    "fields.model": {"selector": {"css": "input[name='p-20000~1']"}},
+    "fields.installation": {"selector": {"field": "安装方式"}, "action": "choice", "option": {"text": ""}},
+    "fields.conductor": {"selector": {"field": "导体材质"}, "action": "choice", "option": {"role": "option"}},
+    "fields.contact_plating": {"selector": {"field": "触点镀层"}, "value_selector": {"css": "[id='struct-p-553128462'] .next-select-values"}, "action": "choice", "option": {"role": "option"}},
+    "logistics.template": {"selector": {"css": ".logis-block .next-select-trigger"}, "value_selector": {"css": ".logis-block .next-select-values"}, "action": "choice", "option": {"role": "option"}},
+    "logistics.dispatch": {"selector": {"label": "48小时内发货"}, "action": "check", "checked_value": "48小时以内"},
+    "logistics.listing": {"selector": {"label": "放入仓库"}, "action": "check", "checked_value": "放入仓库"},
+    "total_inventory": {"selector": {"field": "总库存"}}
+  },
+  "counts": {
+    "title_count": {"css": ".sell-component-tbtitle:has(input[placeholder='最多允许输入30个汉字（60字符）']) .fusion-input"},
+    "guide_title_count": {"css": ".sell-component-tbtitle:has(input[placeholder='最多输入30字符（15个汉字）']) .fusion-input"}
+  },
+  "detail_preview": {"frame_url": "item-decoration/detail-preview/index\\.html", "images": "img"},
+  "detail_sort": {"container": {"css": "#panel_edit"}, "items": "[draggable='true'][class*='content_item_dropdown-']", "image": "img", "handle": "[class*='wrapper_module_index_label-']"},
+  "panels": {
+    "materials": {
+      "selector": {"scope": [{"css": "#panel_edit"}], "css": "[data-type='pic']"},
+      "region": {"frame_url": "crs-qn/sucai-selector-ng/index", "css": "body"},
+      "staged_checkboxes": "input[type='checkbox']",
+      "close": {"frame_url": "crs-qn/sucai-selector-ng/index", "css": "#sucai-tu-selector-container > .qn_close_blod"}
+    },
+    "logistics": {
+      "selector": {"scope": [{"css": "#sell-field-shippingArea"}], "label": "大陆及港澳台"},
+      "after": [{"scope": [{"css": "#sell-field-shippingArea"}], "label": "单一发货地"},
+                {"scope": [{"css": "#sell-field-shippingArea"}], "role": "combobox", "action": "click"}],
+      "conflicts": [{"scope": [{"css": "#sell-field-shippingArea"}], "label": "其他国家或地区"},
+                    {"scope": [{"css": "#sell-field-shippingArea"}], "label": "多发货地"}]
+    },
+    "specification": {
+      "selector": {"role": "button", "name": "+ 创建规格"},
+      "empty_region": {"css": ".sell-sku-table-wrapper-new"}, "empty_text": "+ 创建规格",
+      "region": {"css": ".sku-decouple-drawer"},
+      "custom_mode": {"scope": [{"css": ".sku-decouple-drawer"}], "label": "自定义填写规格"},
+      "name": {"scope": [{"css": ".sku-decouple-drawer"}], "placeholder": "输入规格"},
+      "name_inputs": "input[placeholder='输入规格']",
+      "material_open": {"scope": [{"css": ".sku-decouple-drawer"}], "css": ".sell-component-common-sale-props-option-item:has(input[value={name}]) .sell-color-option-image-empty"},
+      "staged_images": ".sale-props-value .sell-color-option-image-upload img",
+      "confirm": {"scope": [{"css": ".sku-decouple-drawer"}], "role": "button", "name": "确认创建"},
+      "image_dialog": {"css": ".batch-fill-sku-image-dialog"},
+      "image_dialog_images": ".sku-images-area img",
+      "image_dialog_cancel": {"scope": [{"css": ".batch-fill-sku-image-dialog"}], "role": "button", "name": "取消"},
+      "close": {"scope": [{"css": ".sku-decouple-drawer"}], "role": "button", "name": "取消"}
+    }
+  },
+  "origin": {
+    "control": {"scope": [{"css": "#sell-field-shippingArea"}], "role": "combobox"},
+    "value": {"scope": [{"css": "#sell-field-shippingArea"}], "role": "combobox"},
+    "value_attribute": "aria-valuetext",
+    "options": {"css": ".next-cascader-select-dropdown"},
+    "option_css": "[role='option'][title={name}]",
+    "province_names": {"浙江省": "浙江"}, "city_names": {"温州市": "温州"}
+  },
+  "sku_materials": {
+    "list_transition": true,
+    "tree": {"frame_url": "crs-qn/sucai-selector-ng/index", "role": "tree"},
+    "cards": {"frame_url": "crs-qn/sucai-selector-ng/index", "css": "[class*='PicList_PicturesShow_main-document__']"},
+    "card_items": "[class*='PicList_pic_background__']",
+    "filename": "[class*='PicList_tip_title__']", "dimensions": "[class*='PicList_spec__']",
+    "checkbox": "input[type='checkbox']", "image": "img", "full_view": ".qn_fullscreen_bold",
+    "preview_image": {"frame_url": "crs-qn/sucai-selector-ng/index", "css": "[class*='PicPreview_pic_view_slider__'] img"},
+    "preview_close": {"frame_url": "crs-qn/sucai-selector-ng/index", "css": "#pic_view_wrapper .qn_close_circle_fill"}
+  },
+  "local_upload": {
+    "open": {"frame_url": "crs-qn/sucai-selector-ng/index", "role": "button", "name": "本地上传"},
+    "destination": {"frame_url": "crs-qn/sucai-selector-ng/index", "scope": [{"role": "dialog", "name": "上传素材"}], "label": "上传至"},
+    "options": {"frame_url": "crs-qn/sucai-selector-ng/index", "css": ".next-cascader-select-dropdown .next-cascader"},
+    "option_css": "[role='option'][title={name}]",
+    "original": {"frame_url": "crs-qn/sucai-selector-ng/index", "scope": [{"role": "dialog", "name": "上传素材"}], "label": "原图上传"},
+    "input": {"frame_url": "crs-qn/sucai-selector-ng/index", "scope": [{"role": "dialog", "name": "上传素材"}], "css": "input[type='file']"},
+    "files": {"frame_url": "crs-qn/sucai-selector-ng/index", "scope": [{"role": "dialog", "name": "上传素材"}], "css": "[class*='UploadPanel_uploadFileList__']"}
+  },
+  "submit": {"verified": false, "selector": {"role": "button", "name": "提交宝贝信息"}, "timeout": 60},
+  "sku": {
+    "table": {"css": ".sell-sku-table-wrapper-new"},
+    "headers": ".sell-sku-head-cell", "header_attribute": "title",
+    "controls": "input:not([type='hidden']),textarea:not([data-fake='true']),select",
+    "columns": {"name": "商品规格", "price": "价格", "inventory": "数量", "area": "导线截面积", "cable": "适用线缆类型", "inventory_unit": "数量"},
+    "cell_values": {"inventory_unit": ".next-after", "cable": ".next-select-values"},
+    "measurement_units": {"area": "平方毫米"},
+    "count": {"css": ".sell-sku-table-wrapper-new .page-pad"}, "count_pattern": "1\\s*/\\s*(1)"
+  },
+  "batch": {
+    "single_sku_only": true,
+    "open": {"scope": [{"css": ".sell-sku-table-wrapper-new"}], "role": "button", "name": "更多批量"},
+    "region": {"role": "dialog", "name": "批量填充"},
+    "area_open": {"scope": [{"role": "dialog", "name": "批量填充"}], "css": ".multi-operation-item:has(.multi-operation-item-label:text-is('导线截面积')) .overlay"},
+    "empty_values": {"inventory": [0]},
+    "fields": {
+      "price": {"selector": {"scope": [{"role": "dialog", "name": "批量填充"}], "field": "价格"}},
+      "inventory": {"selector": {"scope": [{"role": "dialog", "name": "批量填充"}], "field": "数量"}},
+      "cable": {"selector": {"scope": [{"role": "dialog", "name": "批量填充"}], "field": "适用线缆类型"},
+                "value_selector": {"scope": [{"role": "dialog", "name": "批量填充"}], "css": ".multi-operation-item:has(.multi-operation-item-label:text-is('适用线缆类型')) .next-select-values"},
+                "action": "choice", "option": {"scope": [{"css": ".sell-o-select-popup-overlay"}], "text": ""}},
+      "area": {
+        "selector": {"scope": [{"role": "dialog", "name": "批量填充"}], "css": ".multi-operation-item:has(.multi-operation-item-label:text-is('导线截面积')) .overlay"},
+        "value_selector": {"scope": [{"role": "dialog", "name": "批量填充"}], "css": ".multi-operation-item:has(.multi-operation-item-label:text-is('导线截面积')) input[placeholder='规格']"},
+        "action": "measurement", "measurement_unit": "平方毫米",
+        "editor": {"css": ".sell-common-sale-props-multi-expression-overlay"},
+        "unit_selector": {"scope": [{"css": ".sell-common-sale-props-multi-expression-overlay"}], "css": ".next-select-values"},
+        "number_selector": {"scope": [{"css": ".sell-common-sale-props-multi-expression-overlay"}], "placeholder": "请输入数量"},
+        "finish": {"scope": [{"css": ".sell-common-sale-props-multi-expression-overlay"}], "css": ".mask"}
+      }
+    },
+    "apply": {"scope": [{"role": "dialog", "name": "批量填充"}], "role": "button", "name": "批量填充"}
+  },
+  "materials": null,
+  "warehouse": {
+    "verified": false,
+    "page_url_pattern": "qn\\.taobao\\.com/home\\.htm/SellManage/",
+    "selected_tab": {"css": "[role='tab'][data-ui-test='in_stock']"},
+    "tab": {"css": "[role='tab'][data-ui-test='in_stock'] .next-tabs-tab-inner"},
+    "first_page": {"css": ".l-config-list-pagination button[aria-label^='第1页，']"},
+    "page_number": {"css": ".l-config-list-pagination .next-current .next-btn-helper"},
+    "total": {"css": ".l-config-list-pagination .next-pagination-total"},
+    "total_pattern": "共(\\d+)件商品",
+    "table": {"css": ".l-config-list-table table[role='table']"},
+    "rows": "tr[role='row']",
+    "title": "td[label='商品名称'] a.title-link",
+    "created": "td[label='创建时间'] .product-desc-span:not(.product-desc-span-status)",
+    "row_status": "td[label='创建时间'] .product-desc-span-status",
+    "next_page": {"css": ".l-config-list-pagination button.next-next"},
+    "loading": {"text": "加载中"},
+    "max_pages": 100,
+    "source": "2026-10-08实际仓库DOM候选绑定；提交仍禁用"
+  },
+  "warehouse_entry": {
+    "shop": {"css": ".user-area-pop-up-panel [class^='shopName--']"},
+    "url": "https://qn.taobao.com/home.htm/SellManage/on_sale?current=1&pageSize=20",
+    "page_url_pattern": "qn\\.taobao\\.com/home\\.htm/SellManage/",
+    "tab": {"css": "[role='tab'][data-ui-test='in_stock']"},
+    "tab_click": {"css": "[role='tab'][data-ui-test='in_stock'] .next-tabs-tab-inner"},
+    "source": "实际出售中列表只读证据products-list-readonly-aae9e4a7a0.json；仅入口，不作仓库验收"
+  }
+}

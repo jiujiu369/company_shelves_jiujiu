@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "task_id": "jg-single-sku-test-20261008",
+  "mode": "test",
+  "shop": {
+    "value": "温州市施科电器厂",
+    "source": "千牛JG测试操作流程总结.md/店铺",
+    "confirmed": true,
+    "reason": ""
+  },
+  "category": {
+    "value": "50021001",
+    "source": "千牛JG测试操作流程总结.md/接线端子类目",
+    "confirmed": true,
+    "reason": ""
+  },
+  "title_policy": {
+    "title_units": 60,
+    "guide_units": 30,
+    "forbid_brand": true
+  },
+  "platform_unit_rules": [
+    {
+      "sku": "JG6-6",
+      "platform": "件",
+      "business": "包",
+      "factor": 1,
+      "source": "2026-10-08用户直接回复：一件就是一包；仅本次JG6-6测试",
+      "confirmed": true
+    }
+  ],
+  "fields": {
+    "title": {
+      "value": "JG系列紫铜镀锡压接接线端子电线电缆铜鼻子配电柜铜排连接圆孔型",
+      "source": "千牛JG测试操作流程总结.md/最新单SKU60字节标题",
+      "confirmed": true,
+      "reason": ""
+    },
+    "guide_title": {
+      "value": "紫铜镀锡压接端子配电柜铜排连接",
+      "source": "千牛JG测试操作流程总结.md/已核验导购标题",
+      "confirmed": true,
+      "reason": ""
+    },
+    "brand": {
+      "value": "施科特",
+      "source": "D:/上架专用/JG/自家原商品图和sku/product.json",
+      "confirmed": true,
+      "reason": ""
+    },
+    "model": {
+      "value": "JG铜接线端子",
+      "source": "千牛JG测试操作流程总结.md/品牌关联型号",
+      "confirmed": true,
+      "reason": ""
+    },
+    "installation": {
+      "value": "压接",
+      "source": "千牛JG测试操作流程总结.md/用户确认安装方式",
+      "confirmed": true,
+      "reason": ""
+    },
+    "conductor": {
+      "value": "紫铜",
+      "source": "千牛JG测试操作流程总结.md/最新单SKU导体材质",
+      "confirmed": true,
+      "reason": ""
+    },
+    "contact_plating": {
+      "value": "镀锡",
+      "source": "千牛JG测试操作流程总结.md/最新单SKU触点镀层",
+      "confirmed": true,
+      "reason": ""
+    }
+  },
+  "title_facts": [
+    {
+      "value": "JG系列铜接线端子，紫铜导体，镀锡表面，压接",
+      "source": "千牛JG测试操作流程总结.md/已确认资料",
+      "confirmed": true
+    },
+    {
+      "value": "电线电缆铜鼻子，配电柜铜排和端子排连接，圆孔型",
+      "source": "千牛JG测试操作流程总结.md/最新已核验标题与JG6-6原图",
+      "confirmed": true
+    }
+  ],
+  "forbidden_title_terms": [
+    "施科特"
+  ],
+  "skus": [
+    {
+      "name": {
+        "value": "JG6-6",
+        "source": "用户最新单SKU测试要求",
+        "confirmed": true,
+        "reason": ""
+      },
+      "price": {
+        "value": "100.00",
+        "source": "用户JG测试专用值，非正式默认",
+        "confirmed": true,
+        "reason": ""
+      },
+      "inventory": {
+        "value": 999,
+        "source": "用户最新JG测试专用库存",
+        "confirmed": true,
+        "reason": ""
+      },
+      "sales_unit": {
+        "value": "包",
+        "source": "千牛JG测试操作流程总结.md/用户确认100元按一包",
+        "confirmed": true,
+        "reason": ""
+      },
+      "inventory_unit": {
+        "value": "包",
+        "source": "千牛JG测试操作流程总结.md/销售单位与用户库存要求",
+        "confirmed": true,
+        "reason": ""
+      },
+      "area": {
+        "value": "6",
+        "source": "用户确认JG后第一个数字，更多批量已测试",
+        "confirmed": true,
+        "reason": ""
+      },
+      "cable": {
+        "value": "单芯多股芯",
+        "source": "用户最新更多批量已验证值",
+        "confirmed": true,
+        "reason": ""
+      },
+      "pack_quantity": {
+        "value": null,
+        "source": "详情表数量为每包只数",
+        "confirmed": false,
+        "reason": "本配置尚未逐项提取并确认JG6-6每包只数；可选字段留空"
+      },
+      "image": {
+        "value": "sku图/施科特_SKU_JG6-6.png",
+        "source": "D:/上架专用/JG/sku图/施科特_SKU_JG6-6.png",
+        "confirmed": true,
+        "reason": ""
+      }
+    }
+  ],
+  "logistics": {
+    "province": {
+      "value": "浙江省",
+      "source": "用户JG测试物流要求",
+      "confirmed": true,
+      "reason": ""
+    },
+    "city": {
+      "value": "温州市",
+      "source": "用户JG测试物流要求",
+      "confirmed": true,
+      "reason": ""
+    },
+    "dispatch": {
+      "value": "48小时以内",
+      "source": "用户JG测试物流要求",
+      "confirmed": true,
+      "reason": ""
+    },
+    "template": {
+      "value": "包邮",
+      "source": "用户确认已有包邮模板",
+      "confirmed": true,
+      "reason": ""
+    },
+    "listing": {
+      "value": "放入仓库",
+      "source": "用户要求只入仓",
+      "confirmed": true,
+      "reason": ""
+    }
+  },
+  "media": {
+    "root": "D:/上架专用/JG",
+    "folders": {
+      "main": "JG/主图",
+      "detail": "JG/详情图",
+      "sku": "JG/sku"
+    },
+    "main": [
+      "1440主图/施科特_主图01_系列主视觉_v2_1440.png",
+      "1440主图/施科特_主图02_端子排连接_v2_1440.png",
+      "1440主图/施科特_主图03_镀锡外形_v2_1440.png",
+      "1440主图/施科特_主图04_配电柜铜排连接_v2_1440.png",
+      "1440主图/施科特_主图05_材质与规格_v2_1440.png"
+    ],
+    "detail": [
+      "详情图/施科特_详情01_产品概览_v2_1086x1448.png",
+      "详情图/施科特_详情02_材质结构_v2_1086x1448.png",
+      "详情图/施科特_详情03_JG16-6参数_v2_1086x1448.png",
+      "详情图/施科特_详情04_正确连接_v2_1086x1448.png",
+      "详情图/施科特_详情05_铜排应用_v2_1086x1448.png",
+      "详情图/施科特_详情06_规格选型_v2_1086x1448.png",
+      "详情图/施科特_详情07_厂家实景与资质_原资料.png",
+      "详情图/施科特_详情08_采购服务_v2_1086x1448.png",
+      "详情图/施科特_详情09_型号参数表_v4_径字修正_1440x4520.png"
+    ],
+    "split_authorized": true,
+    "split_source": "用户已授权JG测试点击确认分割；仍须完整核验",
+    "input_mode": "local_folder",
+    "local_upload_authorizations": [
+      {
+        "file": "详情图/施科特_详情09_型号参数表_v4_径字修正_1440x4520.png",
+        "folder": "JG/详情图",
+        "source": "2026-10-08用户直接回复：以v4为准，允许补入素材中心；不调整当前详情顺序",
+        "confirmed": true
+      }
+    ],
+    "notes": "平台历史09为v3，本地为v4，必须精确核验冲突，不模糊替换，不自动上传",
+    "local_folder_authorization": {
+      "root": "D:/上架专用/JG",
+      "confirmed": true,
+      "source": "本地工作台操作者保存配置时确认上传目录及清单"
+    }
+  }
+}

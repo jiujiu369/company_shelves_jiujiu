@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>千牛自动录入工作台</title><link rel="stylesheet" href="/style.css"><script defer src="/lucide.min.js"></script><script defer src="/app.js"></script></head>
+<body>
+<a class="skip" href="#main">跳到任务内容</a>
+<aside class="sidebar">
+  <div class="brand"><i data-lucide="package-check"></i><strong>千牛自动录入</strong><span>本机工作台</span></div>
+  <label class="product-label" for="product">商品配置</label><select id="product"><option>读取中</option></select>
+  <button id="sidebar-edit"><i data-lucide="pencil"></i>编辑当前商品配置</button>
+  <button id="choose-product"><i data-lucide="file-input"></i>选择商品资料</button>
+  <nav aria-label="工作台导航">
+    <button class="nav selected" data-view="overview" aria-current="page"><i data-lucide="layout-dashboard"></i>工作台</button>
+    <button class="nav" data-view="checks"><i data-lucide="list-checks"></i>核对明细<span id="bad-count"></span></button>
+    <button class="nav" data-view="events"><i data-lucide="history"></i>执行记录</button>
+    <button class="nav" data-view="facts"><i data-lucide="folder-open"></i>商品资料</button>
+  </nav>
+  <div class="sidebar-footer"><i data-lucide="shield-check"></i><div><strong>只放入仓库</strong><p>结果未知时不重复提交</p></div></div>
+</aside>
+<main id="main">
+  <header class="page-header"><div><p class="eyebrow">商品任务</p><h1>自动录入工作台</h1></div><button id="refresh" class="icon-button" title="刷新本地记录" aria-label="刷新本地记录"><i data-lucide="refresh-cw"></i></button></header>
+  <div id="message" role="status" aria-live="polite" hidden></div>
+  <section class="product-summary" aria-label="当前商品"><img id="product-image" alt="当前商品本地主图" width="80" height="80" hidden><div class="product-heading"><div class="summary-line"><h2 id="product-name">正在读取商品</h2><span id="mode" class="badge"></span></div><p id="shop"></p><p id="version" class="muted"></p></div><div class="submission-summary"><span id="task-status" class="badge warning">读取中</span><p id="item-id">新商品编号：待读取</p></div></section>
+  <section id="overview" class="view">
+  <section id="pipeline" class="pipeline" aria-label="任务流程"></section>
+  <div class="toolbar" aria-label="任务操作">
+    <button class="primary" data-action="fill" id="fill"><i data-lucide="play"></i>开始填写已知项</button>
+    <button data-action="inspect"><i data-lucide="scan-line"></i>重新核对</button>
+    <button data-action="resume"><i data-lucide="rotate-ccw"></i>恢复并重读</button>
+    <button id="pause"><i data-lucide="pause"></i>暂停</button>
+    <span class="toolbar-spacer"></span><button id="submit" class="warehouse" disabled><i data-lucide="archive"></i>单次提交入仓</button>
+  </div>
+  <section class="run-bar" id="run-bar" aria-label="当前执行状态"><i data-lucide="circle-dot"></i><div><strong id="run-title">尚未启动本轮任务</strong><p id="run-detail">读取记录中</p></div><span id="elapsed"></span></section>
+    <div class="workspace-grid">
+      <section class="preparation-section">
+        <div class="section-heading"><div><p class="eyebrow">开始前</p><h2>准备检查</h2></div><span id="prep-count" class="badge">待确认</span></div>
+        <p class="note">未知资料可后补，必填依据不足时相关操作与提交暂停。准备确认不代替平台回读。</p>
+        <h3>程序检查</h3><div id="auto-preparation"></div>
+        <h3 class="manual-heading">人工确认</h3><div id="manual-preparation"></div>
+        <div id="prep-note" class="small-note"></div>
+        <div class="utility-actions"><button data-action="validate"><i data-lucide="clipboard-check"></i>校验资料</button><button data-action="start-browser"><i data-lucide="monitor"></i>打开专用浏览器</button><button data-action="probe"><i data-lucide="user-check"></i>检查登录</button></div>
+      </section>
+      <aside class="evidence-section">
+        <div class="section-heading"><div><p class="eyebrow">当前停点</p><h2>核对与现场</h2></div></div>
+        <div id="blockers"></div>
+        <div class="evidence-heading"><h3>最近保存的现场</h3><span class="muted">不是实时画面</span></div>
+        <a id="evidence-link" target="_blank" rel="noopener" hidden><img id="evidence" alt="最近保存的千牛页面现场截图" loading="lazy"></a><p id="no-evidence" class="empty">尚无现场截图</p>
+        <div class="utility-actions"><button data-action="audit-images"><i data-lucide="images"></i>核验图片</button><button data-action="audit-warehouse"><i data-lucide="warehouse"></i>核对仓库全表</button></div>
+        <div class="boundary"><i data-lucide="lock-keyhole"></i><p id="submit-boundary">提交保持禁用，等待完整现场核验。</p></div>
+      </aside>
+    </div>
+    <section class="pending-section"><div class="section-heading"><h2>待补资料</h2><span id="pending-count" class="muted"></span></div><div id="pending"></div></section>
+  </section>
+  <section id="checks" class="view" hidden><div class="section-heading"><h2>逐字段核对</h2><label class="filter"><input id="failed-only" type="checkbox">仅未通过</label></div><p class="note">展示上次平台回读的实际值、来源和时间。历史通过不代表当前页面已保存。</p><div id="checks-table" class="table-wrap"></div></section>
+  <section id="events" class="view" hidden><div class="section-heading"><h2>执行记录</h2><span class="muted">最近100条持久事件</span></div><div id="events-list"></div></section>
+  <section id="facts" class="view" hidden><div class="section-heading"><h2>商品资料与来源</h2><button id="edit-config"><i data-lucide="pencil"></i>编辑配置</button><span id="facts-version" class="muted"></span></div><section class="model-section"><h3>Qwen3.5 本地资料助手</h3><p id="model-status"></p><label for="model-image">商品图片</label><select id="model-image"></select><div class="utility-actions"><button data-action="model-probe"><i data-lucide="plug"></i>检查模型连接</button><button id="model-extract"><i data-lucide="scan-text"></i>提取图片资料</button><button data-action="model-suggest"><i data-lucide="text-cursor-input"></i>生成标题建议</button></div><p id="model-progress" role="status"></p><pre id="model-result"></pre></section><div id="facts-table" class="table-wrap"></div><section class="media-section"><h3>素材配置</h3><div id="media-summary"></div></section></section>
+  <footer><span id="updated">等待读取本地记录</span><span>千牛真实入仓状态以平台回查为准</span></footer>
+</main>
+<dialog id="submit-dialog"><h2>确认仅放入仓库</h2><p id="submit-description"></p><p>将持久记录提交意图并只提交一次。超时或结果不明时只回查，不自动重试。</p><div class="dialog-actions"><button id="cancel-submit">取消</button><button id="confirm-submit" class="primary"><i data-lucide="archive"></i>确认入仓</button></div></dialog>
+<dialog id="import-dialog"><h2>选择商品资料</h2><label for="import-path">本地商品配置文件</label><input id="import-path" placeholder="D:\商品资料\商品.json"><button id="browse-product"><i data-lucide="folder-open"></i>浏览</button><p id="import-error" role="alert"></p><div class="dialog-actions"><button id="cancel-import">取消</button><button id="confirm-import" class="primary">导入配置</button></div></dialog>
+<dialog id="config-dialog"><h2>编辑商品配置</h2><p>未知值可留空，保留来源和待补原因。保存不代表平台已修改或保存。</p><label for="media-mode">图片来源</label><select id="media-mode"><option value="local_folder">本地文件夹上传</option><option value="material_center">千牛素材中心</option></select><label for="material-root">图片目录</label><div class="directory-row"><input id="material-root"><button id="browse-folder" title="选择图片目录" aria-label="选择图片目录"><i data-lucide="folder-open"></i></button></div><label><input type="checkbox" id="folder-upload-confirmed">确认将此目录中配置列出的图片上传到当前千牛店铺</label><div id="config-fields"></div><details id="advanced-config"><summary>完整配置（SKU组合、图片顺序与规则）</summary><textarea id="config-json" spellcheck="false" aria-label="完整商品配置"></textarea></details><p id="config-error" role="alert"></p><div class="dialog-actions"><button id="cancel-config">取消</button><button id="save-config" class="primary"><i data-lucide="save"></i>保存新版本</button></div></dialog>
+</body></html>

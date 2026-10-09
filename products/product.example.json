@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "task_id": "replace-with-stable-product-task-id",
+  "mode": "production",
+  "shop": {"value": null, "source": "user", "confirmed": false, "reason": "待确认店铺"},
+  "category": {"value": null, "source": "商品资料", "confirmed": false, "reason": "待确认类目；首版仅50021001"},
+  "title_policy": {"title_units": 60, "guide_units": 30, "forbid_brand": true},
+  "fields": {
+    "title": {"value": null, "source": "已确认商品事实", "confirmed": false, "reason": "待提供事实支持的标题"},
+    "guide_title": {"value": null, "source": "已确认商品事实", "confirmed": false, "reason": "待提供导购标题"},
+    "brand": {"value": null, "source": "品牌资料", "confirmed": false, "reason": "待提供真实品牌"},
+    "model": {"value": null, "source": "型号资料", "confirmed": false},
+    "installation": {"value": null, "source": "技术资料", "confirmed": false},
+    "conductor": {"value": null, "source": "技术资料", "confirmed": false}
+  },
+  "title_facts": [],
+  "skus": [{
+    "name": {"value": null, "source": "SKU清单", "confirmed": false},
+    "image": {"value": null, "source": "指定素材", "confirmed": false},
+    "price": {"value": null, "source": "正式价格表", "confirmed": false, "reason": "待提供销售价格"},
+    "inventory": {"value": null, "source": "正式库存文件", "confirmed": false, "reason": "待提供可售库存"},
+    "sales_unit": {"value": null, "source": "销售资料", "confirmed": false},
+    "inventory_unit": {"value": null, "source": "库存单位", "confirmed": false},
+    "area": {"value": null, "source": "技术资料", "confirmed": false},
+    "cable": {"value": null, "source": "技术资料", "confirmed": false},
+    "pack_quantity": {"value": null, "source": "包装资料", "confirmed": false, "reason": "可选，无依据留空"}
+  }],
+  "logistics": {
+    "province": {"value": null, "source": "店铺物流配置", "confirmed": false},
+    "city": {"value": null, "source": "店铺物流配置", "confirmed": false},
+    "dispatch": {"value": null, "source": "履约资料", "confirmed": false},
+    "template": {"value": null, "source": "已存在运费模板", "confirmed": false},
+    "listing": {"value": "放入仓库", "source": "用户统一入仓要求", "confirmed": true}
+  },
+  "media": {"root": ".", "main": [], "detail": [],
+    "folders": {"main": null, "detail": null, "sku": null},
+    "split_authorized": false, "input_mode": "material_center"}
+}
